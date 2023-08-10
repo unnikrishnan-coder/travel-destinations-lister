@@ -44,8 +44,9 @@
 <body>
     <div>
         <h1>Welcome to travel lister app</h1>
-    <form action="#" method="post">
-        <input type="text" name="destination" id="destination" placeholder="input the destination that you want the related destinations">
+    <form action="{% url 'travel_lister:generate' %}" method="post">
+        {% csrf_token %} 
+        <input required type="text" name="destination" id="destination" placeholder="input the destination that you want the related destinations">
         <button type="submit">Submit</button>
     </form>
     </div>
