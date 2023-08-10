@@ -18,6 +18,7 @@ def scrapper(location):
         location = nav.ul.li.a.get_text().lstrip().rstrip()
         filename = f"{location}.txt"
         pdf_filename = f"{location}.pdf"
+        file_to_be_sent = pdf_filename
 
         # make the title
         page_title = data.title.string.rstrip().lstrip()
@@ -56,8 +57,9 @@ def scrapper(location):
         os.remove(file_path)
 
         # moving the pdf and opening it
-        destination_dir = fr"C:\Users\unnik\OneDrive\Desktop\travel\{pdf_filename}"
+        destination_dir = os.path.join(cwd,"media",pdf_filename)
         shutil.move(pdf_filename,destination_dir)
-        os.startfile(destination_dir)
+        return {"success":True,"filename":file_to_be_sent}
     except Exception as e:
         print(e)
+        return {"success":False}

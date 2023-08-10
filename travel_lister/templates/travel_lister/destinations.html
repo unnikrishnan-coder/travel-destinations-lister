@@ -10,6 +10,13 @@
     
     {% if data %}
     <h2>{{ data }}</h2>
+    
+    {% if filename  %}
+    <a href="{{filename}}" target="_blank"><button>Download pdf</button></a>
+    {% else %}
+    <h2>Some error</h2>
+    {% endif %}
+        
     {% endif %}
         
 </body>
