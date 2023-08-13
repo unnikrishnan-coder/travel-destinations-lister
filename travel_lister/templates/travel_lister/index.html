@@ -1,55 +1,39 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <title>Travel Lister</title>
-    <style>
-        body{
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: black;
-            color: white;
-            overflow: hidden;
-        }
-        body::-webkit-scrollbar{
-            display: none;
-        }
-        body > div{
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-evenly;
-        }
-        form{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: beige;
-            border-radius: 20px;
-            width: 30%;
-            height: 30%;
-        }
-        form *{
-            margin: 10px;
-        }
-    </style>
 </head>
+
 <body>
-    <div>
-        <h1>Welcome to travel lister app</h1>
-    <form action="{% url 'travel_lister:generate' %}" method="post">
-        {% csrf_token %} 
-        <input required type="text" name="destination" id="destination" placeholder="input the destination that you want the related destinations">
-        <button type="submit">Submit</button>
-    </form>
-    </div>
+    <nav>
+        <ul>
+            <li><img src="{% static 'images/logo.png' %}" class="logo" alt="logo"></li>
+            <li>Signup</li>
+            <li>Login</li>
+        </ul>
+    </nav>
+    <header>
+        <div class="left flex-center">
+            <img src="{% static 'images/travel.png' %}" alt="traveller">
+        </div>
+        <div class="right">
+            <h1 class="header-text">Search & Explore</h1>
+            <p class="header-tag-line">Don't miss out on any location</p>
+            <form action="{% url 'travel_lister:generate' %}" method="post">
+                {% csrf_token %}
+                <label for="destination">Destination</label>
+                <input required type="text" name="destination" id="destination" placeholder="Enter the destination">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </header>
     
+
 </body>
+
 </html>

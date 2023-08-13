@@ -1,23 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/destinations.css' %}">
     <title>Document</title>
 </head>
+
 <body>
-    <h1>Generated Destinations</h1>
-    
-    {% if data %}
-    <h2>{{ data }}</h2>
-    
-    {% if filename  %}
-    <a href="{{filename}}" target="_blank"><button>Download pdf</button></a>
-    {% else %}
-    <h2>Some error</h2>
-    {% endif %}
-        
-    {% endif %}
-        
+    <nav>
+        <ul>
+            <li><a href="/"><img src="{% static 'images/logo.png' %}" class="logo" alt="logo"></a></li>
+            <li>Signup</li>
+            <li>Login</li>
+        </ul>
+    </nav>
+    <main>
+        <div class="left flex-center">
+            <img src="{% static 'images/success.png' %}" alt="traveller">
+        </div>
+        <div class="right flex-center">
+            <h1 class="header-text">Generated Destinations</h1>
+            {% if data %}
+            <div class="dw">
+                <h2 class="header-tag-line">{{ data }}</h2>
+                {% if filename %}
+                <a href="{{filename}}" target="_blank"><button>Download pdf</button></a>
+                {% else %}
+            </div>
+            <h2>Some error</h2>
+            {% endif %}
+            {% endif %}
+        </div>
+    </main>
+
+
 </body>
+
 </html>
