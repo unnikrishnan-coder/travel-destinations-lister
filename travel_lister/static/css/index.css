@@ -18,7 +18,6 @@ nav ul{
     flex-direction: row;
     align-items: center;
     justify-content: start;
-    margin-left: 100px;
 }
 li{
     font-size: 1.2rem;
